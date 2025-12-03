@@ -1,16 +1,16 @@
 h1 = "Uppgifter att göra:"
 
-- @results.each do |task|
-    h2 #{task["name"]}
-    h3 #{task["description"]}
-    input type="submit" value="Uppdatera"
-    form action="/todo/:id/delete" method="post"
-        input type="submit" value="Ta bort"
-
-    hr
-
 form action="/todo" method="post"
     
     input type="text" name="name" placeholder="Ange en ny uppgift"
     input type="text" name="description" placeholder="Beskriv uppgiften"
     input type="submit" value="Lägg till uppgift"
+
+- @results.each do |task|
+  h2 = task["name"]
+  h3 = task["description"]
+  #upd 
+    a href="/todos/#{task['id']}/edit" Uppdatera
+  form action="/todo/#{task['id']}/delete" method="post"
+    input type="submit" value="Ta bort"
+    hr
