@@ -13,4 +13,19 @@ form action="/todo" method="post"
     a href="/todos/#{task['id']}/edit" Uppdatera
   form action="/todo/#{task['id']}/delete" method="post"
     input type="submit" value="Ta bort"
-    hr
+
+  form method="post" action="/todo/#{task['id']}/update_done"
+    input type="submit" value="Färdig"
+Hr
+
+h1 Färdiga
+- @done.each do |task|
+  h2 = task["name"]
+  h3 = task["description"]
+  #upd 
+    a href="/todos/#{task['id']}/edit" Uppdatera
+  form action="/todo/#{task['id']}/delete" method="post"
+    input type="submit" value="Ta bort"
+
+  form method="post" action="/todo/#{task['id']}/update_done"
+    input type="submit" value="Lägg tillbaka uppgiften"
